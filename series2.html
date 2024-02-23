@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        .text-danger {
+            color: red;
+        }
+
+        .text-success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+       
+    <input type="button" :class="active ? 'text-success' : 'text-danger'" value="Click Me" v-on:click="checkButton">
+    </div>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    active : false
+                };
+            },
+            methods :  {
+                checkButton() {
+                    this.active = ! this.active;
+                },
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>
