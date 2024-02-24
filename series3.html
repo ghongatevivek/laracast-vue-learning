@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     <div id="app" >
-        <section class="item-align-center" v-show="pendingTechnology.length">
+        <section v-show="pendingTechnology.length">
             <h2>Pending Technologies List</h2>
             <ul>
                 <li 
@@ -25,7 +24,7 @@
             </ul>
         </section>
 
-        <section class="item-align-center" v-show="completedTechnology.length">
+        <section v-show="completedTechnology.length">
             <h2>Completed Technologies List</h2>
             <ul>
                 <li 
