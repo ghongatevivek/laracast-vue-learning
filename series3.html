@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app" >
+        <section class="item-align-center" v-show="pendingTechnology.length">
+            <h2>Pending Technologies List</h2>
+            <ul>
+                <li 
+                    v-for="tech in pendingTechnology" 
+                    :key="tech.id"
+                >
+                    <label>
+                        {{tech.name}}
+                        <input type="checkbox" v-model="tech.complete">
+                    </label>
+                </li>
+
+            </ul>
+        </section>
+
+        <section class="item-align-center" v-show="completedTechnology.length">
+            <h2>Completed Technologies List</h2>
+            <ul>
+                <li 
+                    v-for="tech in completedTechnology" 
+                    :key="tech.id"
+                >
+                    <label>
+                        {{tech.name}}
+                        <input type="checkbox" v-model="tech.complete">
+                    </label>
+                </li>
+
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        let app = {
+            data() {
+                return {
+                    technologies : [
+                        {name : 'PHP', complete : false, id : 1},
+                        {name : 'Codeighniter', complete : false, id : 2},
+                        {name : 'Vue', complete : false, id : 3},
+                        {name : 'React', complete : false, id : 4},
+                        {name : 'React', complete : false, id : 5},
+                    ]
+                }
+            },
+            computed : {
+                pendingTechnology() {
+                    return this.technologies.filter(a => ! a.complete);
+                },
+
+                completedTechnology() {
+                    return this.technologies.filter(a =>  a.complete);
+                }
+            },
+        }
+        Vue.createApp(app).mount('#app');
+    </script>
+</body>
+</html>
